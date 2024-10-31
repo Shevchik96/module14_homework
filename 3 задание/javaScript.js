@@ -4,7 +4,7 @@ function useRequest(url, callback) {
 
     xhr.onload = function () {
         if (xhr.status != 200) {
-            console.log('Статус ответа: ', xhr.status);
+            console.log('Статус ответа: ${xhr.status}');
         } else {
             const result = JSON.parse(xhr.response);
             if (callback) {
@@ -43,7 +43,8 @@ btnNode.addEventListener('click', () => {
     if (value < 1 || value > 10) {
         resultNode.innerHTML = "<p>число вне диапазона от 1 до 10</p>";
     } else {
-        url = ` https://jsonplaceholder.typicode.com/photos?_limit=8=${value}`;
+        url = ` https://jsonplaceholder.typicode.com/photos?_limit=${value}`;
         useRequest(url, showResult)
     }
 })
+
