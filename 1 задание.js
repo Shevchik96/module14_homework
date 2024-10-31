@@ -26,16 +26,16 @@ const student = xmlDom.querySelectorAll("student");
 
 function getStudentArray(student) {
     let resultStudent = [];
-    student.forEach(function(Item, index){
-        const studentName = Item.querySelector("name");
-        const firstName = Item.querySelector("first");
-        const secondtName = Item.querySelector("second");
-        const studentAge = Item.querySelector("age");
-        const studentProf = Item.querySelector("prof");
+    student.forEach(function(item, index){
+        const studentName = item.querySelector("name");
+        const firstName = item.querySelector("first");
+        const secondName = item.querySelector("second");
+        const studentAge = item.querySelector("age");
+        const studentProf = item.querySelector("prof");
         const studentLang = studentName.getAttribute("lang");
     
         resultStudent[index] = {
-        name: `${firstName.textContent} ${secondtName.textContent}`,
+        name: `${firstName.textContent} ${secondName.textContent}`,
         age: studentAge.textContent,
         prof: studentProf.textContent,
         lang: studentLang};
@@ -44,7 +44,7 @@ function getStudentArray(student) {
 }
 
 let resultObject = {
-    [list.tagName]: getStudentArray(student)
+    ['list']: getStudentArray(student)
 };
 
 console.log(resultObject);
